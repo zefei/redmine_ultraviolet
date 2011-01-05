@@ -75,7 +75,7 @@ module UltravioletSyntaxPatch
     base.send(:include, InstanceMethods)
 
     base.class_eval do
-      alias_method_chain :syntax_highlight, :uv_syntax_highlight
+      #alias_method_chain :syntax_highlight, :uv_syntax_highlight
       alias_method_chain :highlight_by_language, :uv_highlight_by_language
     end
   end
@@ -117,4 +117,4 @@ module UltravioletSyntaxPatch
   end
 end
 
-ApplicationHelper.send(:include, UltravioletSyntaxPatch)
+SyntaxHighlighting.send(:include, UltravioletSyntaxPatch)
