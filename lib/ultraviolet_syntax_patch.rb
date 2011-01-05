@@ -75,6 +75,7 @@ module UltravioletSyntaxPatch
     class << self
       #def syntax_highlight_with_uv_syntax_highlight(name, content)
       def highlight_by_filename(content,name)#text, filename)
+        require 'uv'
         ## See: http://ultraviolet.rubyforge.org/svn/lib/uv.rb 
         ## See: http://ultraviolet.rubyforge.org/themes.xhtml
       
@@ -95,6 +96,7 @@ module UltravioletSyntaxPatch
       end
     
       def highlight_by_language(content,syntax_name)
+        require 'uv'
         ## See: http://ultraviolet.rubyforge.org/svn/lib/uv.rb 
         ## See: http://ultraviolet.rubyforge.org/themes.xhtml
       
