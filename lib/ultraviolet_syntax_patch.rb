@@ -77,7 +77,7 @@ module UltravioletSyntaxPatch
     end
     
     class << self
-      require_dependency 'uv'
+      require 'uv'
       #def syntax_highlight_with_uv_syntax_highlight(name, content)
       def highlight_by_filename(content,name)#text, filename)
         ## See: http://ultraviolet.rubyforge.org/svn/lib/uv.rb 
@@ -117,5 +117,4 @@ module UltravioletSyntaxPatch
     end
 end
 
-Redmine::SyntaxHighlighting.highlighter = 'UltravioletSyntaxPatch'
 #ApplicationHelper.send(:include, UltravioletSyntaxPatch)

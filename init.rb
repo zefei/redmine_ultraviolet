@@ -20,3 +20,4 @@ Redmine::Plugin.register :redmine_ultraviolet do
     )
   end
 end
+Redmine::SyntaxHighlighting.highlighter = 'UltravioletSyntaxPatch'
