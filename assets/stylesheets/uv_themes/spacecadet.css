@@ -17,7 +17,7 @@ pre.spacecadet .line-numbers {
    color: #FFFFFF;
 }
 pre.spacecadet {
-   background-color: #0D0D0D;
+   background-color: #0D0D0D !important;
    color: #DDE6CF;
 }
 pre.spacecadet .TagName {

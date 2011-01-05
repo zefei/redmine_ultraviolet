@@ -12,7 +12,7 @@ pre.all_hallows_eve .TextBase {
    color: #FFFFFF;
 }
 pre.all_hallows_eve {
-   background-color: #000000;
+   background-color: #000000 !important;
    color: #FFFFFF;
 }
 pre.all_hallows_eve .StringEscapesExecuted {

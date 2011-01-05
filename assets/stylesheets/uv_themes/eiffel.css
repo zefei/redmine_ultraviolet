@@ -39,7 +39,7 @@ pre.eiffel .MarkupTag {
    color: #1C02FF;
 }
 pre.eiffel {
-   background-color: #FFFFFF;
+   background-color: #FFFFFF !important;
    color: #000000;
 }
 pre.eiffel .MarkupHeading {

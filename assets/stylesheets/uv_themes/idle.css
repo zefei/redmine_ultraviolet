@@ -16,7 +16,7 @@ pre.idle .line-numbers {
    color: #000000;
 }
 pre.idle {
-   background-color: #FFFFFF;
+   background-color: #FFFFFF !important;
    color: #000000;
 }
 pre.idle .StringInterpolation {

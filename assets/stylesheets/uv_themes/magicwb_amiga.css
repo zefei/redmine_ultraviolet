@@ -89,7 +89,7 @@ pre.magicwb_amiga .String {
    color: #FFFFFF;
 }
 pre.magicwb_amiga {
-   background-color: #969696;
+   background-color: #969696 !important;
    color: #000000;
 }
 pre.magicwb_amiga .FunctionName {

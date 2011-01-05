@@ -16,7 +16,7 @@ pre.active4d .EmbeddedSource {
    background-color: #ECF1FF;
 }
 pre.active4d {
-   background-color: #FFFFFF;
+   background-color: #FFFFFF !important;
    color: #000000;
 }
 pre.active4d .DiffInsertedLine {

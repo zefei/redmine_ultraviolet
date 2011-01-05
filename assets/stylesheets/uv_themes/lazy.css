@@ -56,7 +56,7 @@ pre.lazy .Keyword {
    color: #FF7800;
 }
 pre.lazy {
-   background-color: #FFFFFF;
+   background-color: #FFFFFF !important;
    color: #000000;
 }
 pre.lazy .InvalidDeprecated {

@@ -18,7 +18,7 @@ pre.mac_classic .Number {
    color: #0000CD;
 }
 pre.mac_classic {
-   background-color: #FFFFFF;
+   background-color: #FFFFFF !important;
    color: #000000;
 }
 pre.mac_classic .MarkupList {

@@ -95,7 +95,7 @@ pre.amy .FloatingPointInfixOperator {
 pre.amy .BuiltInConstant1 {
 }
 pre.amy {
-   background-color: #200020;
+   background-color: #200020 !important;
    color: #D0D0FF;
 }
 pre.amy .FunctionArgument {

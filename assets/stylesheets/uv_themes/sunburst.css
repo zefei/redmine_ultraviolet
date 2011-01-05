@@ -145,7 +145,7 @@ pre.sunburst .Keyword {
    color: #E28964;
 }
 pre.sunburst {
-   background-color: #000000;
+   background-color: #000000 !important;
    color: #F8F8F8;
 }
 pre.sunburst .LogEntry {

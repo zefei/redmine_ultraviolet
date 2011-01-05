@@ -307,7 +307,7 @@ pre.brilliance_dull .PseudoClass {
    color: #7D58A4;
 }
 pre.brilliance_dull {
-   background-color: #000000;
+   background-color: #000000 !important;
    color: #CCCCCC;
 }
 pre.brilliance_dull .TagBlockHead {

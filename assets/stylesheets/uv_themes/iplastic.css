@@ -32,7 +32,7 @@ pre.iplastic .line-numbers {
    color: #000000;
 }
 pre.iplastic {
-   background-color: #EEEEEE;
+   background-color: #EEEEEE !important;
    color: #000000;
 }
 pre.iplastic .FrameTitle {

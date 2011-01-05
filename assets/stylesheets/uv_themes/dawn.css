@@ -98,7 +98,7 @@ pre.dawn .Keyword {
    color: #794938;
 }
 pre.dawn {
-   background-color: #F5F5F5;
+   background-color: #F5F5F5 !important;
    color: #080808;
 }
 pre.dawn .MarkupItalic {

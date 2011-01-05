@@ -32,7 +32,7 @@ pre.zenburnesque .Operators {
    color: #FFFFA0;
 }
 pre.zenburnesque {
-   background-color: #404040;
+   background-color: #404040 !important;
    color: #DEDEDE;
 }
 pre.zenburnesque .LibraryConstant {
