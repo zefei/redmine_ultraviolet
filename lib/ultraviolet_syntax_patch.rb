@@ -1,4 +1,4 @@
-require_dependency 'syntax_highlighting'
+require_dependency 'redmine/syntax_highlighting'
 
 #
 # Monkeypatches for the Ultraviolet (Uv) module:
