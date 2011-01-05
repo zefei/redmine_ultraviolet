@@ -10,7 +10,7 @@ require_dependency 'uv'
 #
 module Uv
   
-  DEFAULT_THEME = "pastels_on_dark"
+  DEFAULT_THEME = "mac_classic"
   THEMES = %w[
     active4d
     all_hallows_eve
