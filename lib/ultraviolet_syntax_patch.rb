@@ -109,7 +109,11 @@ module UltravioletSyntaxPatch
         @uv_theme_name = user_theme || Uv::DEFAULT_THEME
 
         # Usage: Uv.parse(text, output="xhtml", syntax_name=nil, line_numbers=false, render_style="classic", headers=false)
-        Uv.parse(content, "xhtml", syntax_name, true, "amy").sub('<pre class=','<span class=').gsub('</pre>','</span>')
+        if Uv.syntaxes.contains? syntax_name
+          Uv.parse(content, "xhtml", syntax_name, true, "amy").sub('<pre class=','<span class=').gsub('</pre>','</span>')
+        else
+          ERB::Util.h(content)
+        end
         #Uv.methods.join("\n")# || ::Uv.to_s
         #syntax_name
       end
