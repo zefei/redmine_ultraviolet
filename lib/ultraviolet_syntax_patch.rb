@@ -110,7 +110,8 @@ module UltravioletSyntaxPatch
 
         # Usage: Uv.parse(text, output="xhtml", syntax_name=nil, line_numbers=false, render_style="classic", headers=false)
         #Uv.parse(content, "xhtml", syntax_name, true, "amy").sub('<pre class=','<span class=').gsub('</pre>','</span>')
-        Uv.methods.join("\n")# || ::Uv.to_s
+        #Uv.methods.join("\n")# || ::Uv.to_s
+        syntax_name
       end
       
       def get_uv_theme_name
