@@ -72,7 +72,7 @@ end
 # UV Syntax highlighting for Redmine
 #
 module UltravioletSyntaxPatch
-  require 'uv'
+
   def self.included(base) # :nodoc:
       base.send(:include, self)
     end
@@ -86,7 +86,7 @@ module UltravioletSyntaxPatch
       
         ## User selection of UV Theme
         user_theme = User.current.custom_value_for(CustomField.first(:conditions => {:name => 'Ultraviolet Theme'}))
-        @uv_theme_name = "amy"#user_theme || Uv::DEFAULT_THEME
+        @uv_theme_name = user_theme || Uv::DEFAULT_THEME
 
         syntaxes = Uv.syntax_for_file(name, content)
 
@@ -97,7 +97,7 @@ module UltravioletSyntaxPatch
         end
         puts "hello"
         # Usage: Uv.parse(text, output="xhtml", syntax_name=nil, line_numbers=false, render_style="classic", headers=false)
-        Uv.parse(content, "xhtml", syntax_name, true, "amy")#@uv_theme_name)
+        Uv.parse(content, "xhtml", syntax_name, true, @uv_theme_name)
       end
     
       def highlight_by_language(content,syntax_name)
