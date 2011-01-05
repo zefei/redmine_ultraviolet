@@ -1,6 +1,6 @@
 require_dependency 'redmine/syntax_highlighting'
 require_dependency 'uv'
-require_dependency 'redmine'
+
 #require_dependency 'application_helper'
 
 #
