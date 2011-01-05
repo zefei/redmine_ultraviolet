@@ -94,7 +94,7 @@ module UltravioletSyntaxPatch
         end
         puts "hello"
         # Usage: Uv.parse(text, output="xhtml", syntax_name=nil, line_numbers=false, render_style="classic", headers=false)
-        Uv.parse(content, "xhtml", syntax_name, true, @uv_theme_name)
+        Uv.parse(content, "xhtml", syntax_name, true, "amy")#@uv_theme_name)
       end
     
       def highlight_by_language(content,syntax_name)
