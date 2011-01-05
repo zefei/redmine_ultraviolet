@@ -90,9 +90,9 @@ module UltravioletSyntaxPatch
         else
           syntax_name = syntaxes.first.first
         end
-
+        puts "hello"
         # Usage: Uv.parse(text, output="xhtml", syntax_name=nil, line_numbers=false, render_style="classic", headers=false)
-        return ::Uv.parse(content, "xhtml", syntax_name, true, @uv_theme_name)
+        return Uv.parse(content, "xhtml", syntax_name, true, @uv_theme_name)
       end
     
       def highlight_by_language(content,syntax_name)
