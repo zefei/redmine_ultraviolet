@@ -69,7 +69,7 @@ end
 #
 # UV Syntax highlighting for Redmine
 #
-module UltravioletSyntax
+module UltravioletSyntaxPatch
     class << self
       #def syntax_highlight_with_uv_syntax_highlight(name, content)
       def highlight_by_filename(content,name)#text, filename)
