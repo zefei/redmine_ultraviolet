@@ -69,52 +69,41 @@ end
 #
 # UV Syntax highlighting for Redmine
 #
-module UltravioletSyntaxPatch
-
-  def self.included(base) # :nodoc:
-    base.send(:include, InstanceMethods)
-
-    base.class_eval do
-      #alias_method_chain :syntax_highlight, :uv_syntax_highlight
-      alias_method_chain :highlight_by_language, :uv_highlight_by_language
-    end
-  end
-
-  module InstanceMethods
-
-    def syntax_highlight_with_uv_syntax_highlight(name, content)
-      ## See: http://ultraviolet.rubyforge.org/svn/lib/uv.rb 
-      ## See: http://ultraviolet.rubyforge.org/themes.xhtml
+module UltravioletSyntax
+    class << self
+      #def syntax_highlight_with_uv_syntax_highlight(name, content)
+      def highlight_by_filename(content,name)#text, filename)
+        ## See: http://ultraviolet.rubyforge.org/svn/lib/uv.rb 
+        ## See: http://ultraviolet.rubyforge.org/themes.xhtml
       
-      ## User selection of UV Theme
-      user_theme = User.current.custom_value_for(CustomField.first(:conditions => {:name => 'Ultraviolet Theme'}))
-      @uv_theme_name = user_theme || Uv::DEFAULT_THEME
+        ## User selection of UV Theme
+        user_theme = User.current.custom_value_for(CustomField.first(:conditions => {:name => 'Ultraviolet Theme'}))
+        @uv_theme_name = user_theme || Uv::DEFAULT_THEME
 
-      syntaxes = Uv.syntax_for_file(name, content)
+        syntaxes = Uv.syntax_for_file(name, content)
 
-      if syntaxes.empty?
-        syntax_name = "plain_text"
-      else
-        syntax_name = syntaxes.first.first
+        if syntaxes.empty?
+          syntax_name = "plain_text"
+        else
+          syntax_name = syntaxes.first.first
+        end
+
+        # Usage: Uv.parse(text, output="xhtml", syntax_name=nil, line_numbers=false, render_style="classic", headers=false)
+        return Uv.parse(content, "xhtml", syntax_name, true, @uv_theme_name)
       end
-
-      # Usage: Uv.parse(text, output="xhtml", syntax_name=nil, line_numbers=false, render_style="classic", headers=false)
-      return Uv.parse(content, "xhtml", syntax_name, true, @uv_theme_name)
-    end
     
-    def highlight_by_language_with_uv_highlight_by_language(content,syntax_name)
-      ## See: http://ultraviolet.rubyforge.org/svn/lib/uv.rb 
-      ## See: http://ultraviolet.rubyforge.org/themes.xhtml
+      def highlight_by_language(content,syntax_name)
+        ## See: http://ultraviolet.rubyforge.org/svn/lib/uv.rb 
+        ## See: http://ultraviolet.rubyforge.org/themes.xhtml
       
-      ## User selection of UV Theme
-      user_theme = User.current.custom_value_for(CustomField.first(:conditions => {:name => 'Ultraviolet Theme'}))
-      @uv_theme_name = user_theme || Uv::DEFAULT_THEME
+        ## User selection of UV Theme
+        user_theme = User.current.custom_value_for(CustomField.first(:conditions => {:name => 'Ultraviolet Theme'}))
+        @uv_theme_name = user_theme || Uv::DEFAULT_THEME
 
-      # Usage: Uv.parse(text, output="xhtml", syntax_name=nil, line_numbers=false, render_style="classic", headers=false)
-      return Uv.parse(content, "xhtml", syntax_name, true, @uv_theme_name).sub('<pre class=','<span class=').gsub('</pre>','</span>')
+        # Usage: Uv.parse(text, output="xhtml", syntax_name=nil, line_numbers=false, render_style="classic", headers=false)
+        return Uv.parse(content, "xhtml", syntax_name, true, @uv_theme_name).sub('<pre class=','<span class=').gsub('</pre>','</span>')
+      end
     end
-
-  end
 end
 
-Redmine::SyntaxHighlighting.send(:include, UltravioletSyntaxPatch)
+Redmine::SyntaxHighlighting.highlighter = 'UltravioletSyntaxPatch'
