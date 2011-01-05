@@ -112,7 +112,7 @@ pre.twilight .Keyword {
    color: #CDA869;
 }
 pre.twilight {
-   background-color: #141414;
+   background-color: #141414 !important;
    color: #F8F8F8;
 }
 pre.twilight .CssPropertyName {
