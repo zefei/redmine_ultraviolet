@@ -122,5 +122,5 @@ module UltravioletSyntaxPatch
       end
     end
 end
-
+Redmine::SyntaxHighlighting.highlighter = 'UltravioletSyntaxPatch'
 #ApplicationHelper.send(:include, UltravioletSyntaxPatch)
