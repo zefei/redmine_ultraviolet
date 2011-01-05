@@ -1,4 +1,4 @@
-require_dependency 'application_helper'
+require_dependency 'syntax_highlighting'
 
 #
 # Monkeypatches for the Ultraviolet (Uv) module:
