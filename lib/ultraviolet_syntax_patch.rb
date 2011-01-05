@@ -71,6 +71,10 @@ end
 # UV Syntax highlighting for Redmine
 #
 module UltravioletSyntaxPatch
+  def self.included(base) # :nodoc:
+      base.send(:include, self)
+    end
+    
     class << self
       #def syntax_highlight_with_uv_syntax_highlight(name, content)
       def highlight_by_filename(content,name)#text, filename)
