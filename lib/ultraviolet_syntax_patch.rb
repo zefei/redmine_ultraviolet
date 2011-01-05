@@ -117,4 +117,4 @@ module UltravioletSyntaxPatch
   end
 end
 
-SyntaxHighlighting.send(:include, UltravioletSyntaxPatch)
+Redmine::SyntaxHighlighting.send(:include, UltravioletSyntaxPatch)
