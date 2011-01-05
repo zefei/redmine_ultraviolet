@@ -95,7 +95,7 @@ module UltravioletSyntaxPatch
         end
         puts "hello"
         # Usage: Uv.parse(text, output="xhtml", syntax_name=nil, line_numbers=false, render_style="classic", headers=false)
-        Uv.parse(content, "xhtml", syntax_name, true, @uv_theme_name)
+        Uv.parse(content, "xhtml", syntax_name, true, get_uv_theme_name)
       end
     
       def highlight_by_language(content,syntax_name)
@@ -105,7 +105,7 @@ module UltravioletSyntaxPatch
         ## User selection of UV Theme
         # Usage: Uv.parse(text, output="xhtml", syntax_name=nil, line_numbers=false, render_style="classic", headers=false)
         if Uv.syntaxes.include? syntax_name
-          Uv.parse(content, "xhtml", syntax_name, true,  @uv_theme_name)#.sub('<pre class=','<span class=').gsub('</pre>','</span>')
+          Uv.parse(content, "xhtml", syntax_name, true,  get_uv_theme_name)#.sub('<pre class=','<span class=').gsub('</pre>','</span>')
         else
           ERB::Util.h(content)
         end
