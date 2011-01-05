@@ -83,7 +83,7 @@ module UltravioletSyntaxPatch
       
         ## User selection of UV Theme
         user_theme = User.current.custom_value_for(CustomField.first(:conditions => {:name => 'Ultraviolet Theme'}))
-        @uv_theme_name = user_theme || Uv::DEFAULT_THEME
+        @uv_theme_name = "amy"#user_theme || Uv::DEFAULT_THEME
 
         syntaxes = Uv.syntax_for_file(name, content)
 
