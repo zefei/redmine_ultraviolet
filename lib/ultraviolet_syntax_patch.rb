@@ -92,7 +92,7 @@ module UltravioletSyntaxPatch
         end
         puts "hello"
         # Usage: Uv.parse(text, output="xhtml", syntax_name=nil, line_numbers=false, render_style="classic", headers=false)
-        return Uv.parse(content, "xhtml", syntax_name, true, @uv_theme_name)
+        #return Uv.parse(content, "xhtml", syntax_name, true, @uv_theme_name)
       end
     
       def highlight_by_language(content,syntax_name)
@@ -105,7 +105,7 @@ module UltravioletSyntaxPatch
         @uv_theme_name = user_theme || ::Uv::DEFAULT_THEME
 
         # Usage: Uv.parse(text, output="xhtml", syntax_name=nil, line_numbers=false, render_style="classic", headers=false)
-        return ::Uv.parse(content, "xhtml", syntax_name, true, @uv_theme_name).sub('<pre class=','<span class=').gsub('</pre>','</span>')
+        #return ::Uv.parse(content, "xhtml", syntax_name, true, @uv_theme_name).sub('<pre class=','<span class=').gsub('</pre>','</span>')
       end
     end
 end
