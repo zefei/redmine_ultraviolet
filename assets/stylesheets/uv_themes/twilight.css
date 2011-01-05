@@ -111,7 +111,7 @@ pre.twilight .String {
 pre.twilight .Keyword {
    color: #CDA869;
 }
-pre.twilight {
+div.wiki pre {
    background-color: #141414;
    color: #F8F8F8;
 }
