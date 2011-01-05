@@ -6,6 +6,8 @@ engine (CodeRay) with a nicer one (Ultraviolet).
 Ultraviolet uses Textmate's syntax highlighting files, so it supports every
 language under the sun. And it has lots of themes!
 
+Can now also highlight wiki code blocks (but switch off cache formatted text in redmine settings)
+
 = Installation:
 
 First, install Ultraviolet:
