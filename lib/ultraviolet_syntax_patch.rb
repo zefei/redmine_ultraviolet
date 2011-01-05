@@ -85,8 +85,6 @@ module UltravioletSyntaxPatch
         ## See: http://ultraviolet.rubyforge.org/svn/lib/uv.rb 
         ## See: http://ultraviolet.rubyforge.org/themes.xhtml
       
-        ## User selection of UV Theme
-        user_theme = User.current.custom_value_for(CustomField.first(:conditions => {:name => 'Ultraviolet Theme'}))
       
         syntaxes = Uv.syntax_for_file(name, content)
 
@@ -97,7 +95,7 @@ module UltravioletSyntaxPatch
         end
         puts "hello"
         # Usage: Uv.parse(text, output="xhtml", syntax_name=nil, line_numbers=false, render_style="classic", headers=false)
-        Uv.parse(content, "xhtml", syntax_name, true, get_uv_theme_name)
+        Uv.parse(content, "xhtml", syntax_name, true, @uv_theme_name)
       end
     
       def highlight_by_language(content,syntax_name)
@@ -107,12 +105,16 @@ module UltravioletSyntaxPatch
         ## User selection of UV Theme
         # Usage: Uv.parse(text, output="xhtml", syntax_name=nil, line_numbers=false, render_style="classic", headers=false)
         if Uv.syntaxes.include? syntax_name
-          Uv.parse(content, "xhtml", syntax_name, true, Redmine::SyntaxHighlighting.highlighter.get_uv_theme_name)#.sub('<pre class=','<span class=').gsub('</pre>','</span>')
+          Uv.parse(content, "xhtml", syntax_name, true,  @uv_theme_name)#.sub('<pre class=','<span class=').gsub('</pre>','</span>')
         else
           ERB::Util.h(content)
         end
         #Uv.methods.join("\n")# || ::Uv.to_s
         #syntax_name
+      end
+      
+      def theme_name=(val)
+         @uv_theme_name = val
       end
       
       def get_uv_theme_name
