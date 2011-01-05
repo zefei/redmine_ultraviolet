@@ -85,7 +85,7 @@ module UltravioletSyntaxPatch
         user_theme = User.current.custom_value_for(CustomField.first(:conditions => {:name => 'Ultraviolet Theme'}))
         @uv_theme_name = user_theme || ::Uv::DEFAULT_THEME
 
-        syntaxes = syntax_for_file(name, content)
+        syntaxes = Uv.syntax_for_file(name, content)
 
         if syntaxes.empty?
           syntax_name = "plain_text"
@@ -94,7 +94,7 @@ module UltravioletSyntaxPatch
         end
         puts "hello"
         # Usage: Uv.parse(text, output="xhtml", syntax_name=nil, line_numbers=false, render_style="classic", headers=false)
-        parse(content, "xhtml", syntax_name, true, @uv_theme_name)
+        Uv.parse(content, "xhtml", syntax_name, true, @uv_theme_name)
       end
     
       def highlight_by_language(content,syntax_name)
@@ -107,7 +107,7 @@ module UltravioletSyntaxPatch
         @uv_theme_name = user_theme || ::Uv::DEFAULT_THEME
 
         # Usage: Uv.parse(text, output="xhtml", syntax_name=nil, line_numbers=false, render_style="classic", headers=false)
-        parse(content, "xhtml", syntax_name, true, @uv_theme_name).sub('<pre class=','<span class=').gsub('</pre>','</span>')
+        Uv.parse(content, "xhtml", syntax_name, true, @uv_theme_name).sub('<pre class=','<span class=').gsub('</pre>','</span>')
       end
     end
 end
