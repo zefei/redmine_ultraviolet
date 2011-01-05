@@ -16,5 +16,5 @@
 </div>
 
 <% content_for :header_tags do %>
-  <%= stylesheet_link_tag "uv_themes/amy#{@uv_theme_name}", :plugin => 'redmine_ultraviolet' %>
+  <%= stylesheet_link_tag "uv_themes/#{Redmine::SyntaxHighlighting.highlighter.get_uv_theme_name}", :plugin => 'redmine_ultraviolet' %>
 <% end %>
