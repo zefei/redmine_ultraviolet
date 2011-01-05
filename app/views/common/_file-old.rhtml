@@ -5,7 +5,7 @@
       <% syntax_highlight(filename, to_utf8(content)).each_line do |line| %>
         <tr>
           <th class="line-num" id="L<%= line_num %>"><a href="#L<%= line_num %>"><%= line_num %></a></th>
-          <td><pre class="<%= @uv_theme_name %>"><%= line %></pre></td>
+          <td><pre class="amy<%= @uv_theme_name %>"><%= line %></pre></td>
         </tr>
         <% line_num += 1 %>
       <% end %>

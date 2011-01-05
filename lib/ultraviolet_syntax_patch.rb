@@ -1,5 +1,6 @@
 require_dependency 'redmine/syntax_highlighting'
 require_dependency 'uv'
+require_dependency 'application_helper'
 
 #
 # Monkeypatches for the Ultraviolet (Uv) module:
@@ -112,3 +113,4 @@ module UltravioletSyntaxPatch
 end
 
 Redmine::SyntaxHighlighting.highlighter = 'UltravioletSyntaxPatch'
+ApplicationHelper.send(:include, UltravioletSyntaxPatch)
