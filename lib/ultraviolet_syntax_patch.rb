@@ -98,7 +98,6 @@ module UltravioletSyntaxPatch
       end
     
       def highlight_by_language(content,syntax_name)
-        require 'uv'
         ## See: http://ultraviolet.rubyforge.org/svn/lib/uv.rb 
         ## See: http://ultraviolet.rubyforge.org/themes.xhtml
       
