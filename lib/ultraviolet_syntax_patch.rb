@@ -72,12 +72,13 @@ end
 # UV Syntax highlighting for Redmine
 #
 module UltravioletSyntaxPatch
+  require 'uv'
   def self.included(base) # :nodoc:
       base.send(:include, self)
     end
     
     class << self
-      require 'uv'
+      
       #def syntax_highlight_with_uv_syntax_highlight(name, content)
       def highlight_by_filename(content,name)#text, filename)
         ## See: http://ultraviolet.rubyforge.org/svn/lib/uv.rb 
@@ -108,7 +109,7 @@ module UltravioletSyntaxPatch
         @uv_theme_name = user_theme || Uv::DEFAULT_THEME
 
         # Usage: Uv.parse(text, output="xhtml", syntax_name=nil, line_numbers=false, render_style="classic", headers=false)
-        Uv.parse(content, "xhtml", syntax_name, true, @uv_theme_name).sub('<pre class=','<span class=').gsub('</pre>','</span>')
+        Uv.parse(content, "xhtml", syntax_name, true, "amy").sub('<pre class=','<span class=').gsub('</pre>','</span>')
       end
       
       def get_uv_theme_name
