@@ -1,4 +1,4 @@
 <p>
   <%= content_tag(:label, l(:label_theme)) %>
-  <%= select_tag "settings[theme]", options_for_select(Uv::THEMES) %><br>
+  <%= select_tag "settings[theme]", options_for_select(Uv::THEMES, @settings['theme']) %><br>
 </p>
