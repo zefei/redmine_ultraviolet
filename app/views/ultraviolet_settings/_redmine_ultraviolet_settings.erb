@@ -1,0 +1,4 @@
+<p>
+  <%= content_tag(:label, l(:label_theme)) %>
+  <%= select_tag "settings[theme]", options_for_select(@settings['possible_values'], @settings['theme']) %><br>
+</p>
