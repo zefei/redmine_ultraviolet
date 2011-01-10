@@ -93,7 +93,7 @@ module UltravioletSyntaxPatch
         else
           syntax_name = syntaxes.first.first
         end
-        puts "hello"
+        #puts "hello"
         # Usage: Uv.parse(text, output="xhtml", syntax_name=nil, line_numbers=false, render_style="classic", headers=false)
         Uv.parse(content, "xhtml", syntax_name, true, get_uv_theme_name)
       end
@@ -124,5 +124,15 @@ module UltravioletSyntaxPatch
       end
     end
 end
+def Setting
+  after_save :clear_textile_cache
+  
+  private
+  def clear_textile_cache
+    ActionController::Base.cache_store.delete_matched(/formatted_text/)
+  end
+  
+end
+
 Redmine::SyntaxHighlighting.highlighter = 'UltravioletSyntaxPatch'
 #ApplicationHelper.send(:include, UltravioletSyntaxPatch)
