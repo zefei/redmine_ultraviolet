@@ -124,18 +124,7 @@ module UltravioletSyntaxPatch
       end
     end
 end
-def Setting
-  after_save :clear_textile_cache
-  
-  private
-  def clear_textile_cache
-    ActionController::Base.cache_store.delete_matched(/formatted_text/)
-    f = File.new(RAILS_ROOT + "/tmp/out.txt")
-    f.puts "Success"
-    f.close
-  end
-  
-end
+
 
 Redmine::SyntaxHighlighting.highlighter = 'UltravioletSyntaxPatch'
 #ApplicationHelper.send(:include, UltravioletSyntaxPatch)

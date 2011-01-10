@@ -24,4 +24,17 @@ Redmine::Plugin.register :redmine_ultraviolet do
   #    :is_required      => true
   #  )
   #end
+  Rails.application.config.to_prepare do 
+    Setting.class_eval do
+      after_save :clear_textile_cache
+
+      private
+      def clear_textile_cache
+        ActionController::Base.cache_store.delete_matched(/formatted_text/)
+        f = File.new(RAILS_ROOT + "/tmp/out.txt")
+        f.puts "Success"
+        f.close
+      end
+    end
+  end
 end
