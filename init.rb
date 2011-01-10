@@ -31,9 +31,6 @@ Redmine::Plugin.register :redmine_ultraviolet do
       private
       def clear_textile_cache
         ActionController::Base.cache_store.delete_matched(/formatted_text/)
-        f = File.new(RAILS_ROOT + "/tmp/out.txt")
-        f.puts "Success"
-        f.close
       end
     end
   end
