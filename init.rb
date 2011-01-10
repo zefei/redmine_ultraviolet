@@ -24,7 +24,7 @@ Redmine::Plugin.register :redmine_ultraviolet do
   #    :is_required      => true
   #  )
   #end
-  Rails.application.config.to_prepare do 
+  config.to_prepare do 
     Setting.class_eval do
       after_save :clear_textile_cache
 
