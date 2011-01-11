@@ -1,8 +1,6 @@
 require_dependency 'redmine/syntax_highlighting'
 require_dependency 'uv'
 
-#require_dependency 'application_helper'
-
 #
 # Monkeypatches for the Ultraviolet (Uv) module:
 # * Allow Uv.syntax_for_file to handle blobs of content (without existing files)
@@ -113,10 +111,6 @@ module UltravioletSyntaxPatch
         #syntax_name
       end
       
-      def theme_name=(val)
-         @uv_theme_name = val
-      end
-      
       def get_uv_theme_name
         #user_theme = User.current.custom_value_for(CustomField.first(:conditions => {:name => 'Ultraviolet Theme'}))
         uv_theme_name = Setting.plugin_redmine_ultraviolet['theme'] || Uv::DEFAULT_THEME
@@ -125,6 +119,5 @@ module UltravioletSyntaxPatch
     end
 end
 
-
+# Change default redmine syntax highligter
 Redmine::SyntaxHighlighting.highlighter = 'UltravioletSyntaxPatch'
-#ApplicationHelper.send(:include, UltravioletSyntaxPatch)
