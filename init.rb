@@ -5,9 +5,9 @@ require 'ultraviolet_syntax_patch'
 
 Redmine::Plugin.register :redmine_ultraviolet do
   name "Redmine Ultraviolet Syntax highlighting plugin"
-  author "Chris Gahan, Andy Bailey"
+  author "Chris Gahan, Andy Bailey edited by Erik Kallen"
   description "Uses Textmate's syntaxes highlighters to highlight files in the source code repository."
-  version "0.0.3"
+  version "0.0.4"
   # Create a dropdown list in the UI so the admin can pick a theme.
   settings(:default => {
               'theme' => Uv::DEFAULT_THEME,
