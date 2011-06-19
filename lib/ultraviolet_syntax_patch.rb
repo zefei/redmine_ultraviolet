@@ -112,8 +112,8 @@ module UltravioletSyntaxPatch
       end
       
       def get_uv_theme_name
-        #user_theme = User.current.custom_value_for(CustomField.first(:conditions => {:name => 'Ultraviolet Theme'}))
-        uv_theme_name = Setting.plugin_redmine_ultraviolet['theme'] || Uv::DEFAULT_THEME
+        uv_theme_name = User.current.custom_value_for(CustomField.first(:conditions => {:name => 'Ultraviolet Theme'})) || Uv::DEFAULT_THEME
+        #uv_theme_name = Setting.plugin_redmine_ultraviolet['theme'] || Uv::DEFAULT_THEME
         return uv_theme_name
       end
     end
